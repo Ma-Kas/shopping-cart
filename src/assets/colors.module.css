@@ -1,0 +1,57 @@
+@import url('/src/assets/global.css');
+
+.whiteColor {
+  color: var(--clr-white);
+}
+
+.whiteBg {
+  background-color: var(--clr-white);
+}
+
+.glassColor {
+  color: var(--clr-glass);
+}
+
+.glassBg {
+  background-color: var(--clr-glass);
+}
+
+.primaryColor {
+  color: var(--clr-primary);
+}
+
+.primaryBg {
+  background-color: var(--clr-primary);
+}
+
+.secondaryColor {
+  color: var(--clr-secondary);
+}
+
+.secondaryBg {
+  background-color: var(--clr-secondary);
+}
+
+.secondaryColor {
+  color: var(--clr-secondary);
+}
+
+.secondaryBg {
+  background-color: var(--clr-secondary);
+}
+
+.accentColor {
+  color: var(--clr-accent);
+}
+
+.accentBg {
+  background-color: var(--clr-accent);
+}
+
+.accentLightColor {
+  color: var(--clr-accent-light);
+}
+
+.accentLightBg {
+  background-color: var(--clr-accent-light);
+}

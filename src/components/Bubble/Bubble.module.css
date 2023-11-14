@@ -1,0 +1,26 @@
+.bubble {
+  composes: glassBg from '/src/assets/colors.module.css';
+  width: max-content;
+  padding: 0.75rem;
+  border-radius: 1000px;
+}
+
+.bubbleInner {
+  composes: whiteBg from '/src/assets/colors.module.css';
+  padding: 0.75rem 2rem;
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bubbleHeading {
+  composes: secondaryColor from '/src/assets/colors.module.css';
+  composes: bold from '/src/assets/font.module.css';
+  composes: fnt24 from '/src/assets/font.module.css';
+}
+
+.bubbleStar {
+  height: 24px;
+}

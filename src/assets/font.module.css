@@ -1,0 +1,45 @@
+@import url('/src/assets/global.css');
+
+.regular {
+  font-weight: 400;
+}
+
+.semiBold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.fnt12 {
+  font-size: 12px;
+}
+
+.fnt16 {
+  font-size: 16px;
+}
+
+.fnt18 {
+  font-size: 18px;
+}
+
+.fnt24 {
+  font-size: 24px;
+}
+
+.fnt28 {
+  font-size: 28px;
+}
+
+.fnt32 {
+  font-size: 32px;
+}
+
+.fnt36 {
+  font-size: 36px;
+}
+
+.fnt48 {
+  font-size: 48px;
+}

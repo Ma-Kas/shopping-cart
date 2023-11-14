@@ -1,0 +1,26 @@
+.cardOuter {
+  composes: glassBg from '/src/assets/colors.module.css';
+  height: max-content;
+  width: 350px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardInner {
+  composes: whiteBg from '/src/assets/colors.module.css';
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.productImage {
+  max-width: 100%;
+}
+
+.middleInfo,
+.bottomInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
