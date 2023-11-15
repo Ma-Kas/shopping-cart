@@ -1,26 +1,32 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
-const Navbar = ({ onCartClick }) => {
+const Navbar = ({ cartData, onCartClick }) => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.storeName}>
         Coffee <span className={styles.storeNameHighlight}>KooHi</span>
       </div>
       <nav className={styles.pagesNavigation}>
-        <a href='' className={`${styles.home} ${styles.pageLink}`}>
+        <Link to='/home' className={`${styles.home} ${styles.pageLink}`}>
           Home
-        </a>
-        <a href='' className={`${styles.store} ${styles.pageLink}`}>
+        </Link>
+        <Link to='/store' className={`${styles.store} ${styles.pageLink}`}>
           Our Products
-        </a>
-        <a href='' className={`${styles.about} ${styles.pageLink}`}>
+        </Link>
+        <Link to='/about' className={`${styles.about} ${styles.pageLink}`}>
           About Us
-        </a>
+        </Link>
       </nav>
 
       <div className={styles.searchAndCart}>
-        <form className={styles.searchbarForm}>
+        <form
+          className={styles.searchbarForm}
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <img src='/src/assets/search.svg' className={styles.searchIcon} />
           <input
             type='search'
@@ -33,6 +39,8 @@ const Navbar = ({ onCartClick }) => {
         </form>
         <button type='button' className={styles.btnCart} onClick={onCartClick}>
           <img src='./src/assets/cart.svg' className={styles.iconCart} />
+          {/* Add small indicator if cartData is not empty */}
+          {cartData.length !== 0 && <div>{cartData.length}</div>}
         </button>
       </div>
     </nav>
@@ -40,6 +48,7 @@ const Navbar = ({ onCartClick }) => {
 };
 
 Navbar.propTypes = {
+  cartData: PropTypes.array.isRequired,
   onCartClick: PropTypes.func.isRequired,
 };
 

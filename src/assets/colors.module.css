@@ -16,6 +16,14 @@
   background-color: var(--clr-glass);
 }
 
+.greyColor {
+  color: var(--clr-grey);
+}
+
+.greyBg {
+  background-color: var(--clr-grey);
+}
+
 .primaryColor {
   color: var(--clr-primary);
 }

@@ -1,0 +1,5 @@
+.page {
+  composes: accentBg from '/src/assets/colors.module.css';
+  background-color: '#f9d9aa';
+  padding: 2rem 6rem;
+}
