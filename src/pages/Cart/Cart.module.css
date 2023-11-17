@@ -1,0 +1,14 @@
+.cartPopout {
+  height: 100vh;
+  width: 30%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  background-color: red;
+}

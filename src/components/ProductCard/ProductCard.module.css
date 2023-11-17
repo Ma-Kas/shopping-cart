@@ -1,17 +1,17 @@
 .cardOuter {
   composes: glassBg from '/src/assets/colors.module.css';
-  height: auto;
-  width: 400px;
+  min-width: 300px;
   border-radius: 1.25rem;
   padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: inherit;
 }
 
 .cardInner {
   composes: whiteBg from '/src/assets/colors.module.css';
-  flex-grow: 1;
+  width: calc(100% - 1rem);
   border-radius: 0.75rem;
   padding: 1.5rem;
   display: flex;
@@ -24,8 +24,11 @@
 }
 
 .productImage {
-  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 1.25 / 1;
   border-radius: 1.25rem;
+  object-fit: cover;
+  object-position: center;
 }
 
 .middleInfo,

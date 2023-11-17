@@ -2,10 +2,16 @@ import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import Navbar from '../../components/Navbar/Navbar';
+import Cart from '../Cart/Cart';
 import styles from './App.module.css';
 
 function App() {
   const [cartData, setCartData] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true);
+  };
 
   const { data, error, loading } = useFetch(
     `https://api.sampleapis.com/coffee/hot`
@@ -16,13 +22,16 @@ function App() {
 
   return (
     <div className={styles.page}>
-      <Navbar
-        cartData={cartData}
-        onCartClick={() => console.log('cart opened')}
-      ></Navbar>
+      <Navbar cartData={cartData} onCartClick={toggleCart}></Navbar>
       <section className={styles.main}>
         <Outlet context={[data, cartData, setCartData]}></Outlet>
       </section>
+      <Cart
+        cartData={cartData}
+        setCartData={setCartData}
+        isCartOpen={isCartOpen}
+        toggleCart={toggleCart}
+      ></Cart>
     </div>
   );
 }

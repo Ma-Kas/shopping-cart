@@ -12,6 +12,10 @@
   font-weight: 700;
 }
 
+.underlined {
+  text-decoration: underline solid var(--clr-primary) 0.15em;
+}
+
 .fnt12 {
   font-size: 12px;
 }

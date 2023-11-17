@@ -3,6 +3,7 @@
   composes: primaryColor from '/src/assets/colors.module.css';
   composes: semiBold from '/src/assets/font.module.css';
   composes: fnt14 from '/src/assets/font.module.css';
+  max-width: fit-content;
   padding: 0.75rem 2rem;
   border-radius: 1000px;
   display: flex;

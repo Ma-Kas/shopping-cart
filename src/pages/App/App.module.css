@@ -1,5 +1,13 @@
 .page {
-  composes: accentBg from '/src/assets/colors.module.css';
-  background-color: '#f9d9aa';
-  padding: 2rem 6rem;
+  composes: accentLightBg from '/src/assets/colors.module.css';
+  padding: 3rem 9rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

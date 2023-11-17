@@ -5,6 +5,11 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const createRandomPrice = () => {
+    const randomPrice = Math.floor(Math.random() * (75 - 40) + 40);
+    return `${randomPrice}0`;
+  };
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -13,6 +18,10 @@ const useFetch = (url) => {
           throw new Error(`HTTP error: Status ${response.status}`);
         }
         let actualData = await response.json();
+        actualData.forEach((element) => {
+          element.price = createRandomPrice();
+        });
+
         setData(actualData);
         setError(null);
       } catch (err) {

@@ -6,7 +6,24 @@ import styles from './ProductCard.module.css';
 const ProductCard = ({ productData, cartData, setCartData }) => {
   const handleAddToCart = () => {
     let cartCopy = [...cartData];
-    cartCopy.push(productData);
+
+    // Check if product is already in cart to increment quantity or add new entry
+    const index = cartCopy.findIndex(
+      (cartItem) => cartItem.id === productData.id
+    );
+    if (index === -1) {
+      const newCartItem = {
+        id: productData.id,
+        title: productData.title,
+        image: productData.image,
+        quantity: 1,
+        price: productData.price,
+      };
+      cartCopy.push(newCartItem);
+    } else {
+      cartCopy[index].quantity++;
+    }
+
     setCartData([...cartCopy]);
   };
 
@@ -23,10 +40,12 @@ const ProductCard = ({ productData, cartData, setCartData }) => {
         </div>
         <div className={styles.middleInfo}>
           <p className={styles.productTitle}>{productData.title}</p>
-          <p className={styles.productPrice}>3,50€</p>
+          <p className={styles.productPrice}>{`${productData.price}円`}</p>
         </div>
         <div className={styles.bottomInfo}>
-          <p className={styles.productDescription}>{productData.ingredients}</p>
+          <p className={styles.productDescription}>
+            {productData.ingredients.join(', ')}
+          </p>
           <AddToCartButton onClick={handleAddToCart}></AddToCartButton>
         </div>
       </div>

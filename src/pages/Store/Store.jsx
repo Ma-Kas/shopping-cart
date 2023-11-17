@@ -10,7 +10,10 @@ const Store = () => {
   const localData = data.slice(0, CONFIG.MAX_PRODUCTS_STORE);
 
   return (
-    <>
+    <div className={styles.storeContainer}>
+      <h2 className={styles.storeHeading}>
+        Special menu <span className={styles.underlined}>for you</span>
+      </h2>
       <div className={styles.cardContainer}>
         {localData.map((dataSet) => (
           <ProductCard
@@ -21,7 +24,7 @@ const Store = () => {
           ></ProductCard>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

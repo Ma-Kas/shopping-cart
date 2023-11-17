@@ -1,0 +1,79 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9rem;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.heroTitle {
+  composes: fnt48 from '/src/assets/font.module.css';
+  composes: semiBold from '/src/assets/font.module.css';
+  composes: secondaryColor from '/src/assets/colors.module.css';
+}
+
+.titleHighlight {
+  composes: primaryColor from '/src/assets/colors.module.css';
+}
+
+.heroDescription {
+  composes: fnt18 from '/src/assets/font.module.css';
+  composes: greyColor from '/src/assets/colors.module.css';
+  max-width: 35ch;
+}
+
+.heroImageContainer {
+  position: relative;
+  width: 100%;
+}
+
+.heroImage {
+  width: 80%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.spotlightContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.underlined {
+  composes: underlined from '/src/assets/font.module.css';
+}
+
+.spotlightItems {
+  position: relative;
+}
+
+.spotlightBackground {
+  composes: accentBg from '/src/assets/colors.module.css';
+  position: absolute;
+  min-width: calc(300px + 4rem);
+  top: 8rem;
+  bottom: -4rem;
+  left: -2rem;
+  right: -2rem;
+  border-radius: 4rem;
+}
+
+.cardContainer {
+  position: relative;
+  min-width: fit-content;
+  width: 100%;
+  padding: 0 2rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  z-index: 99;
+}

@@ -16,9 +16,49 @@ const Home = () => {
 
   return (
     <>
-      <div className={styles.mainContent}></div>
-      <div className={styles.productSpotlight}>
+      <section className={styles.hero}>
+        <section className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>
+            Enjoy your <span className={styles.titleHighlight}>coffee </span>
+            before your activity
+          </h1>
+          <p className={styles.heroDescription}>
+            Boost your productivity and build your mood with a glass of coffee
+            in the morning
+          </p>
+          <Button
+            onClick={() => navigate('/store')}
+            buttonText='Get your coffee'
+          ></Button>
+        </section>
+        <div className={styles.heroImageContainer}>
+          <Bubble
+            bubbleText='Cappuccino'
+            position={{ top: '2rem', left: '-2rem' }}
+          ></Bubble>
+          <Bubble
+            bubbleText='4.8'
+            position={{ top: '6rem', right: '2rem' }}
+            bubbleIcon
+          ></Bubble>
+          <Bubble
+            bubbleText='3,50€'
+            position={{ bottom: '1rem', left: '0rem' }}
+          ></Bubble>
+          <img
+            src='/src/assets/cappuccino.jpg'
+            alt='A declicious cappucino'
+            className={styles.heroImage}
+          />
+        </div>
+      </section>
+      <section className={styles.spotlightContainer}>
+        <h2 className={styles.spotlightHeader}>
+          Popular <span className={styles.underlined}>Now</span>
+        </h2>
+
         <div className={styles.cardContainer}>
+          <div className={styles.spotlightBackground}></div>
           {localData.map((dataSet) => (
             <ProductCard
               productData={dataSet}
@@ -28,13 +68,7 @@ const Home = () => {
             ></ProductCard>
           ))}
         </div>
-      </div>
-      <Bubble bubbleText='Cappuccino'></Bubble>
-      <Bubble bubbleText='4.8' bubbleIcon></Bubble>
-      <Button
-        onClick={() => navigate('/store')}
-        buttonText='Get your coffee'
-      ></Button>
+      </section>
     </>
   );
 };

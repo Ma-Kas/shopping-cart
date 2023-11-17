@@ -1,5 +1,6 @@
 .bubble {
   composes: glassBg from '/src/assets/colors.module.css';
+  position: absolute;
   width: max-content;
   padding: 0.75rem;
   border-radius: 1000px;
