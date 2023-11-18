@@ -1,24 +1,28 @@
 import PropTypes from 'prop-types';
+import Button from '../../components/Button/Button';
 import styles from './Cart.module.css';
 
 const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
   const handleUpdateQuantity = (productData, isDecrease) => {
-    let cartCopy = [...cartData];
+    const cartCopy = [...cartData];
 
     const index = cartCopy.findIndex(
       (cartItem) => cartItem.id === productData.id
     );
     if (isDecrease) {
+      if (cartCopy[index].quantity === 1) {
+        handleDeleteFromCart(productData);
+        return;
+      }
       cartCopy[index].quantity--;
     } else {
       cartCopy[index].quantity++;
     }
-
     setCartData([...cartCopy]);
   };
 
   const handleDeleteFromCart = (productData) => {
-    let cartCopy = [...cartData];
+    const cartCopy = [...cartData];
     const index = cartCopy.findIndex(
       (cartItem) => cartItem.id === productData.id
     );
@@ -27,35 +31,82 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
     setCartData([...cartCopy]);
   };
 
+  const getTotal = () => {
+    const cartCopy = [...cartData];
+    let sum = 0;
+
+    cartCopy.forEach((item) => {
+      sum = sum + item.price * item.quantity;
+    });
+
+    return sum;
+  };
+
   return (
     <div
       className={
-        isCartOpen
-          ? `${styles.cartPopout}`
-          : `${styles.cartPopout} ${styles.hidden}`
+        isCartOpen ? `${styles.cart}` : `${styles.cart} ${styles.hidden}`
       }
     >
-      <button type='button' onClick={handleUpdateQuantity}>
-        Update Quantity
-      </button>
-      <button type='button' onClick={handleDeleteFromCart}>
-        Delete
-      </button>
-      <button type='button' onClick={toggleCart}>
-        Close
-      </button>
+      <div className={styles.cartPopout}>
+        <header className={styles.cartHeader}>
+          <h2 className={styles.cartHeading}>Your Cart</h2>
+          <button type='button' onClick={toggleCart}>
+            <img src='/src/assets/close.svg' className={styles.cartItemIcons} />
+          </button>
+        </header>
+        <section className={styles.cartItemList}>
+          {cartData.map((item) => (
+            <div className={styles.cartItemContainer} key={item.id}>
+              <div className={styles.itemName}>{item.title}</div>
+              <div className={styles.itemOrderContainer}>
+                <div className={styles.quantityContainer}>
+                  <button
+                    type='button'
+                    onClick={() => handleUpdateQuantity(item, true)}
+                  >
+                    <img
+                      src='/src/assets/minus.svg'
+                      className={styles.cartItemIcons}
+                    />
+                  </button>
+                  <div className={styles.itemQuantity}>{item.quantity}</div>
+                  <button
+                    type='button'
+                    onClick={() => handleUpdateQuantity(item, false)}
+                  >
+                    <img
+                      src='/src/assets/plus.svg'
+                      className={styles.cartItemIcons}
+                    />
+                  </button>
+                </div>
+                <div className={styles.itemPrice}>{`${
+                  item.quantity * item.price
+                }円`}</div>
+                <button
+                  type='button'
+                  className={styles.btnDelete}
+                  onClick={() => handleDeleteFromCart(item)}
+                >
+                  <img
+                    src='/src/assets/delete.svg'
+                    className={styles.cartItemIcons}
+                  />
+                </button>
+              </div>
+            </div>
+          ))}
+        </section>
 
-      <section className={styles.cartItemList}>
-        {cartData.map((item) => (
-          <div className={styles.cartItemContainer} key={item.id}>
-            <div className={styles.itemName}>{item.title}</div>
-            <div className={styles.itemQuantity}>{item.quantity}</div>
-            <div className={styles.itemQuantity}>{`${
-              item.quantity * item.price
-            }円`}</div>
+        <section className={styles.checkoutSection}>
+          <div className={styles.checkoutTitle}>Cart Total</div>
+          <div className={styles.checkoutContainer}>
+            <div className={styles.totalPrice}> {`${getTotal()}円`}</div>
+            <Button buttonText='Checkout'></Button>
           </div>
-        ))}
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

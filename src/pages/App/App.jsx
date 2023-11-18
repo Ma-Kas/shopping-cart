@@ -13,6 +13,8 @@ function App() {
     isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true);
   };
 
+  document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
+
   const { data, error, loading } = useFetch(
     `https://api.sampleapis.com/coffee/hot`
   );
