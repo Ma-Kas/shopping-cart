@@ -14,7 +14,7 @@ const Navbar = ({ cartData, onCartClick }) => {
         <Link
           to='/home'
           className={
-            currentLocation === '/home'
+            currentLocation === '/home' || currentLocation === '/'
               ? `${styles.home} ${styles.currentPageLink}`
               : `${styles.home} ${styles.pageLink}`
           }
@@ -60,9 +60,24 @@ const Navbar = ({ cartData, onCartClick }) => {
             autoComplete='off'
           />
         </form>
+        <button
+          type='button'
+          className={styles.btnSearch}
+          onClick={() => console.log('search')}
+        >
+          <img src='./src/assets/search.svg' className={styles.iconCart} />
+        </button>
+
+        <button
+          type='button'
+          className={styles.btnHamburger}
+          onClick={() => console.log('burger')}
+        >
+          <img src='./src/assets/hamburger.svg' className={styles.iconCart} />
+        </button>
+
         <button type='button' className={styles.btnCart} onClick={onCartClick}>
           <img src='./src/assets/cart.svg' className={styles.iconCart} />
-          {/* Add small indicator if cartData is not empty */}
           {cartData.length !== 0 && (
             <div className={styles.fullCartIndicator}></div>
           )}

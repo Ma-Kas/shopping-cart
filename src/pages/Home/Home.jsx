@@ -32,19 +32,21 @@ const Home = () => {
           ></Button>
         </section>
         <div className={styles.heroImageContainer}>
-          <Bubble
-            bubbleText='Cappuccino'
-            position={{ top: '2rem', left: '-2rem' }}
-          ></Bubble>
-          <Bubble
-            bubbleText='4.8'
-            position={{ top: '6rem', right: '2rem' }}
-            bubbleIcon
-          ></Bubble>
-          <Bubble
-            bubbleText='3,50€'
-            position={{ bottom: '1rem', left: '0rem' }}
-          ></Bubble>
+          <div className={styles.bubbleContainer}>
+            <Bubble
+              bubbleText='Cappuccino'
+              positionStyle={{ width: '30%', top: '10%', left: '-15%' }}
+            ></Bubble>
+            <Bubble
+              bubbleText='4.8'
+              positionStyle={{ width: '30%', top: '25%', right: '-10%' }}
+              bubbleIcon
+            ></Bubble>
+            <Bubble
+              bubbleText='350円'
+              positionStyle={{ width: '30%', bottom: '5%', left: '0' }}
+            ></Bubble>
+          </div>
           <img
             src='/src/assets/cappuccino.jpg'
             alt='A declicious cappucino'

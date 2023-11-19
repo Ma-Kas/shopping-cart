@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-// import Bubble from '../Bubble/Bubble';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
+import formatYen from '../../utils/formatYen';
 import styles from './ProductCard.module.css';
 
 const ProductCard = ({ productData, cartData, setCartData }) => {
@@ -31,7 +31,6 @@ const ProductCard = ({ productData, cartData, setCartData }) => {
     <div className={styles.cardOuter}>
       <div className={styles.cardInner}>
         <div className={styles.imageContainer}>
-          {/* <Bubble bubbleText='4.8' bubbleIcon></Bubble> */}
           <img
             src={productData.image}
             alt={`Coffee ${productData.title}`}
@@ -40,7 +39,7 @@ const ProductCard = ({ productData, cartData, setCartData }) => {
         </div>
         <div className={styles.middleInfo}>
           <p className={styles.productTitle}>{productData.title}</p>
-          <p className={styles.productPrice}>{`${productData.price}円`}</p>
+          <p className={styles.productPrice}>{formatYen(productData.price)}</p>
         </div>
         <div className={styles.bottomInfo}>
           <p className={styles.productDescription}>

@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import Navbar from '../../components/Navbar/Navbar';
 import Cart from '../Cart/Cart';
+import coffeeBeans from '../../assets/bg_img.png';
 import styles from './App.module.css';
 
 function App() {
@@ -21,9 +22,11 @@ function App() {
 
   if (error) return <p>{error}</p>;
   if (loading) return <p>Loading...</p>;
-
   return (
     <div className={styles.page}>
+      <img src={coffeeBeans} className={styles.coffeeBgLeft}></img>
+      <img src={coffeeBeans} className={styles.coffeeBgRight}></img>
+      <div className={styles.pageBg}></div>
       <Navbar cartData={cartData} onCartClick={toggleCart}></Navbar>
       <section className={styles.main}>
         <Outlet context={[data, cartData, setCartData]}></Outlet>

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import Button from '../../components/Button/Button';
+import createCartTotal from '../../utils/createCartTotal';
+import formatYen from '../../utils/formatYen';
 import styles from './Cart.module.css';
 
 const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
@@ -29,17 +31,6 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
     if (index === -1) return;
     cartCopy.splice(index, 1);
     setCartData([...cartCopy]);
-  };
-
-  const getTotal = () => {
-    const cartCopy = [...cartData];
-    let sum = 0;
-
-    cartCopy.forEach((item) => {
-      sum = sum + item.price * item.quantity;
-    });
-
-    return sum;
   };
 
   return (
@@ -81,9 +72,9 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
                     />
                   </button>
                 </div>
-                <div className={styles.itemPrice}>{`${
-                  item.quantity * item.price
-                }円`}</div>
+                <div className={styles.itemPrice}>
+                  {formatYen(item.quantity * item.price)}
+                </div>
                 <button
                   type='button'
                   className={styles.btnDelete}
@@ -102,7 +93,9 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
         <section className={styles.checkoutSection}>
           <div className={styles.checkoutTitle}>Cart Total</div>
           <div className={styles.checkoutContainer}>
-            <div className={styles.totalPrice}> {`${getTotal()}円`}</div>
+            <div className={styles.totalPrice}>
+              {formatYen(createCartTotal(cartData))}
+            </div>
             <Button buttonText='Checkout'></Button>
           </div>
         </section>

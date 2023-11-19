@@ -2,19 +2,18 @@
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(3px);
+  width: 100%;
   position: fixed;
   inset: 0;
+  display: flex;
+  justify-content: flex-end;
   animation: 200ms blurBg;
 }
 
 .cartPopout {
   composes: secondaryColor from '/src/assets/colors.module.css';
-  width: 30%;
+  min-width: 350px;
   background-color: white;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
   padding: 2.5rem 1.5rem;
   z-index: 999;
   display: flex;
@@ -106,13 +105,20 @@ button {
   align-items: center;
 }
 
+@media (max-width: 430px) {
+  .cartPopout {
+    min-width: none;
+    width: 100%;
+  }
+}
+
 @keyframes slide-in {
   from {
-    right: -30%;
+    transform: translateX(100%);
   }
 
   to {
-    right: 0;
+    transform: translateX(0);
   }
 }
 

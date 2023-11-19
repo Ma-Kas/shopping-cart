@@ -1,6 +1,5 @@
 .cardOuter {
   composes: glassBg from '/src/assets/colors.module.css';
-  min-width: 300px;
   border-radius: 1.25rem;
   padding: 0.5rem;
   display: flex;
@@ -41,7 +40,7 @@
 
 .middleInfo {
   composes: secondaryColor from '/src/assets/colors.module.css';
-  composes: fnt24 from '/src/assets/font.module.css';
+  font-size: max(20px, min(24px, 5vw));
 }
 
 .productTitle {

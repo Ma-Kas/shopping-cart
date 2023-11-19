@@ -2,12 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 .storeName {
   composes: fnt28 from '/src/assets/font.module.css';
   composes: bold from '/src/assets/font.module.css';
   composes: secondaryColor from '/src/assets/colors.module.css';
+  text-align: left;
 }
 
 .storeNameHighlight {
@@ -17,25 +19,28 @@
 
 .pagesNavigation {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
   align-items: center;
+  gap: 2rem;
 }
 
 .pageLink {
   composes: fnt18 from '/src/assets/font.module.css';
   composes: secondaryColor from '/src/assets/colors.module.css';
   text-decoration: none;
+  text-align: center;
 }
 
 .currentPageLink {
   composes: fnt18 from '/src/assets/font.module.css';
   composes: primaryColor from '/src/assets/colors.module.css';
   text-decoration: none;
+  text-align: center;
 }
 
 .searchAndCart {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
@@ -55,6 +60,7 @@
 .searchbar {
   composes: fnt12 from '/src/assets/font.module.css';
   composes: secondaryColor from '/src/assets/colors.module.css';
+  width: 100%;
   border-radius: 1000px;
   padding: 0.5rem 2.5rem;
 }
@@ -66,15 +72,27 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.224);
 }
 
-.btnCart {
+.btnCart,
+.btnSearch,
+.btnHamburger {
   height: 1.8rem;
   background: none;
-  display: flex;
   align-items: center;
   position: relative;
 }
 
-.btnCart:hover {
+.btnCart {
+  display: flex;
+}
+
+.btnSearch,
+.btnHamburger {
+  display: none;
+}
+
+.btnCart:hover,
+.btnSearch:hover,
+.btnHamburger:hover {
   cursor: pointer;
 }
 
@@ -92,4 +110,28 @@
   position: absolute;
   top: -10%;
   right: 0;
+}
+
+@media (max-width: 1024px) {
+  .btnSearch {
+    display: flex;
+  }
+
+  .searchbarForm {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .pagesNavigation {
+    display: none;
+  }
+
+  .btnSearch {
+    display: none;
+  }
+
+  .btnHamburger {
+    display: flex;
+  }
 }

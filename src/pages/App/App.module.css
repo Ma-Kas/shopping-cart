@@ -1,13 +1,60 @@
 .page {
-  composes: accentLightBg from '/src/assets/colors.module.css';
-  padding: 3rem 9rem 6rem;
+  position: relative;
+  padding: 3rem max(3rem, 13vw) 6rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
+.pageBg {
+  composes: accentLightBg from '/src/assets/colors.module.css';
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.coffeeBgLeft,
+.coffeeBgRight {
+  position: absolute;
+  z-index: -2;
+}
+
+.coffeeBgLeft {
+  width: 40vw;
+  top: 80vh;
+  left: 0;
+  transform: rotateZ(-180deg);
+}
+
+.coffeeBgRight {
+  width: 40vw;
+  top: 0;
+  right: 0;
+}
+
 .main {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .coffeeBgLeft {
+    width: 60vw;
+    top: 60vh;
+  }
+
+  .coffeeBgRight {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .coffeeBgLeft {
+    width: 70vw;
+  }
+
+  .coffeeBgRight {
+    width: 80vw;
+  }
 }
