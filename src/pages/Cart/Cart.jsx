@@ -2,7 +2,12 @@ import PropTypes from 'prop-types';
 import Button from '../../components/Button/Button';
 import createCartTotal from '../../utils/createCartTotal';
 import formatYen from '../../utils/formatYen';
+
 import styles from './Cart.module.css';
+import closeIcon from '/src/assets/close.svg';
+import minusIcon from '/src/assets/minus.svg';
+import plusIcon from '/src/assets/plus.svg';
+import deleteIcon from '/src/assets/delete.svg';
 
 const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
   const handleUpdateQuantity = (productData, isDecrease) => {
@@ -43,7 +48,7 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
         <header className={styles.cartHeader}>
           <h2 className={styles.cartHeading}>Your Cart</h2>
           <button type='button' onClick={toggleCart}>
-            <img src='/src/assets/close.svg' className={styles.cartItemIcons} />
+            <img src={closeIcon} className={styles.cartItemIcons} />
           </button>
         </header>
         <section className={styles.cartItemList}>
@@ -56,20 +61,14 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
                     type='button'
                     onClick={() => handleUpdateQuantity(item, true)}
                   >
-                    <img
-                      src='/src/assets/minus.svg'
-                      className={styles.cartItemIcons}
-                    />
+                    <img src={minusIcon} className={styles.cartItemIcons} />
                   </button>
                   <div className={styles.itemQuantity}>{item.quantity}</div>
                   <button
                     type='button'
                     onClick={() => handleUpdateQuantity(item, false)}
                   >
-                    <img
-                      src='/src/assets/plus.svg'
-                      className={styles.cartItemIcons}
-                    />
+                    <img src={plusIcon} className={styles.cartItemIcons} />
                   </button>
                 </div>
                 <div className={styles.itemPrice}>
@@ -80,10 +79,7 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
                   className={styles.btnDelete}
                   onClick={() => handleDeleteFromCart(item)}
                 >
-                  <img
-                    src='/src/assets/delete.svg'
-                    className={styles.cartItemIcons}
-                  />
+                  <img src={deleteIcon} className={styles.cartItemIcons} />
                 </button>
               </div>
             </div>

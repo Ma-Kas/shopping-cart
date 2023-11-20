@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import formatYen from '../../utils/formatYen';
+
 import styles from './ProductCard.module.css';
 
 const ProductCard = ({ productData, cartData, setCartData, toggleCart }) => {

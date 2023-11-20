@@ -1,4 +1,7 @@
 {
   "MAX_PRODUCTS_HOMEPAGE": 3,
-  "MAX_PRODUCTS_STORE": 14
+  "MAX_PRODUCTS_STORE": 14,
+  "homePath": "/home",
+  "storePath": "/store",
+  "aboutPath": "/about"
 }

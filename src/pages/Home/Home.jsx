@@ -4,7 +4,9 @@ import * as CONFIG from '../../data/configValues.json';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Bubble from '../../components/Bubble/Bubble';
 import Button from '../../components/Button/Button';
+
 import styles from './Home.module.css';
+import cappucinoImage from '/src/assets/cappuccino.jpg';
 
 const Home = () => {
   const [data, cartData, setCartData, toggleCart] = useOutletContext();
@@ -27,7 +29,7 @@ const Home = () => {
             in the morning
           </p>
           <Button
-            onClick={() => navigate('/store')}
+            onClick={() => navigate(CONFIG.storePath)}
             buttonText='Get your coffee'
           ></Button>
         </section>
@@ -48,7 +50,7 @@ const Home = () => {
             ></Bubble>
           </div>
           <img
-            src='/src/assets/cappuccino.jpg'
+            src={cappucinoImage}
             alt='A declicious cappucino'
             className={styles.heroImage}
           />

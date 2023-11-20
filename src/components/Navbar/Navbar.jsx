@@ -1,6 +1,11 @@
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
+import * as CONFIG from '../../data/configValues.json';
+
 import styles from './Navbar.module.css';
+import searchIcon from '/src/assets/search.svg';
+import hamburgerIcon from '/src/assets/hamburger.svg';
+import cartIcon from '/src/assets/cart.svg';
 
 const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
   const currentLocation = useLocation().pathname;
@@ -12,9 +17,9 @@ const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
       </div>
       <nav className={styles.pagesNavigation}>
         <Link
-          to='/home'
+          to={CONFIG.homePath}
           className={
-            currentLocation === '/home' || currentLocation === '/'
+            currentLocation === CONFIG.homePath || currentLocation === '/'
               ? `${styles.home} ${styles.currentPageLink}`
               : `${styles.home} ${styles.pageLink}`
           }
@@ -22,9 +27,9 @@ const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
           Home
         </Link>
         <Link
-          to='/store'
+          to={CONFIG.storePath}
           className={
-            currentLocation === '/store'
+            currentLocation === CONFIG.storePath
               ? `${styles.store} ${styles.currentPageLink}`
               : `${styles.store} ${styles.pageLink}`
           }
@@ -32,9 +37,9 @@ const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
           Our Products
         </Link>
         <Link
-          to='/about'
+          to={CONFIG.aboutPath}
           className={
-            currentLocation === '/about'
+            currentLocation === CONFIG.aboutPath
               ? `${styles.about} ${styles.currentPageLink}`
               : `${styles.about} ${styles.pageLink}`
           }
@@ -50,7 +55,7 @@ const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
             e.preventDefault();
           }}
         >
-          <img src='/src/assets/search.svg' className={styles.searchIcon} />
+          <img src={searchIcon} className={styles.searchIcon} />
           <input
             type='search'
             className={styles.searchbar}
@@ -65,7 +70,7 @@ const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
           className={styles.btnSearch}
           onClick={(e) => e.preventDefault()}
         >
-          <img src='./src/assets/search.svg' className={styles.iconCart} />
+          <img src={searchIcon} className={styles.iconCart} />
         </button>
 
         <button
@@ -73,11 +78,11 @@ const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
           className={styles.btnHamburger}
           onClick={onBurgerClick}
         >
-          <img src='./src/assets/hamburger.svg' className={styles.iconCart} />
+          <img src={hamburgerIcon} className={styles.iconCart} />
         </button>
 
         <button type='button' className={styles.btnCart} onClick={onCartClick}>
-          <img src='./src/assets/cart.svg' className={styles.iconCart} />
+          <img src={cartIcon} className={styles.iconCart} />
           {cartData.length !== 0 && (
             <div className={styles.fullCartIndicator}></div>
           )}

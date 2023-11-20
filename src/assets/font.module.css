@@ -1,4 +1,13 @@
-@import url('/src/assets/global.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --ff-main: 'Poppins', sans-serif;
+  --clr-primary: #ff902a;
+}
+
+* {
+  font-family: var(--ff-main);
+}
 
 .regular {
   font-weight: 400;

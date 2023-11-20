@@ -4,8 +4,9 @@ import useFetch from '../../hooks/useFetch';
 import Navbar from '../../components/Navbar/Navbar';
 import Cart from '../Cart/Cart';
 import Burger from '../Burger/Burger';
-import coffeeBeans from '../../assets/bg_img.png';
+
 import styles from './App.module.css';
+import coffeeBeans from '../../assets/bg_img.png';
 
 function App() {
   const [cartData, setCartData] = useState([]);

@@ -1,4 +1,18 @@
-@import url('/src/assets/global.css');
+:root {
+  --clr-white: #ffffff;
+  --clr-glass: #ffffff8a;
+  --clr-grey: #7e7d7a;
+  --clr-primary: #ff902a;
+  --clr-secondary: #2f2105;
+  --clr-accent: #f9d9aa;
+  --clr-accent-light: #f6ebda;
+}
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
 
 .whiteColor {
   color: var(--clr-white);

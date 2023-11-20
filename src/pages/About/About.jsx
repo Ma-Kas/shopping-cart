@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import * as CONFIG from '../../data/configValues.json';
 import Button from '../../components/Button/Button';
+
 import styles from './About.module.css';
+import aboutImage from '/src/assets/about_img.jpg';
 
 const About = () => {
   const navigate = useNavigate();
@@ -9,7 +12,7 @@ const About = () => {
       <section className={styles.aboutContainer}>
         <div className={styles.aboutImageContainer}>
           <img
-            src='/src/assets/about_img.jpg'
+            src={aboutImage}
             alt='Coffee with latte art.'
             className={styles.aboutImage}
           />
@@ -27,7 +30,7 @@ const About = () => {
             worldwide.
           </p>
           <Button
-            onClick={() => navigate('/store')}
+            onClick={() => navigate(CONFIG.storePath)}
             buttonText='Get your coffee'
           ></Button>
         </section>

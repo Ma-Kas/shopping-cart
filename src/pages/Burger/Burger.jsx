@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import { useLocation, useNavigate } from 'react-router-dom';
+import * as CONFIG from '../../data/configValues.json';
 import Searchbar from '../../components/Searchbar/Searchbar';
+
 import styles from './Burger.module.css';
+import closeIcon from '/src/assets/close.svg';
 
 const Burger = ({ isBurgerOpen, toggleBurger }) => {
   const navigate = useNavigate();
@@ -26,14 +29,14 @@ const Burger = ({ isBurgerOpen, toggleBurger }) => {
         <header className={styles.burgerHeader}>
           <h2 className={styles.burgerHeading}>Menu</h2>
           <button type='button' onClick={toggleBurger}>
-            <img src='/src/assets/close.svg' className={styles.closeIcon} />
+            <img src={closeIcon} className={styles.closeIcon} />
           </button>
         </header>
         <section className={styles.burgerMenuItems}>
           <div className={styles.burgerItemContainer}>
             <div
               className={styles.itemName}
-              onClick={() => handleNavigation('/home')}
+              onClick={() => handleNavigation(CONFIG.homePath)}
             >
               Home
             </div>
@@ -41,7 +44,7 @@ const Burger = ({ isBurgerOpen, toggleBurger }) => {
           <div className={styles.burgerItemContainer}>
             <div
               className={styles.itemName}
-              onClick={() => handleNavigation('/store')}
+              onClick={() => handleNavigation(CONFIG.storePath)}
             >
               Our Products
             </div>
@@ -49,7 +52,7 @@ const Burger = ({ isBurgerOpen, toggleBurger }) => {
           <div className={styles.burgerItemContainer}>
             <div
               className={styles.itemName}
-              onClick={() => handleNavigation('/about')}
+              onClick={() => handleNavigation(CONFIG.aboutPath)}
             >
               About Us
             </div>

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
+
 import styles from './Searchbar.module.css';
+import searchIcon from '/src/assets/search.svg';
 
 const Searchbar = (style) => {
   return (
@@ -10,7 +12,7 @@ const Searchbar = (style) => {
         e.preventDefault();
       }}
     >
-      <img src='/src/assets/search.svg' className={styles.searchIcon} />
+      <img src={searchIcon} className={styles.searchIcon} />
       <input
         type='search'
         className={styles.searchbar}

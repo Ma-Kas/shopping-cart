@@ -1,6 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 import * as CONFIG from '../../data/configValues.json';
 import ProductCard from '../../components/ProductCard/ProductCard';
+
 import styles from './Store.module.css';
 
 const Store = () => {

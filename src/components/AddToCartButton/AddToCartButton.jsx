@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+
 import styles from './AddToCartButton.module.css';
+import cartIcon from '/src/assets/cart.svg';
 
 const AddToCartButton = ({ onClick }) => {
   return (
     <button type='button' className={styles.btn} onClick={onClick}>
-      <img src='./src/assets/cart.svg' className={styles.btnIcon} />
+      <img src={cartIcon} className={styles.btnIcon} />
     </button>
   );
 };
