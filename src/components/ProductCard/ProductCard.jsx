@@ -3,7 +3,7 @@ import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import formatYen from '../../utils/formatYen';
 import styles from './ProductCard.module.css';
 
-const ProductCard = ({ productData, cartData, setCartData }) => {
+const ProductCard = ({ productData, cartData, setCartData, toggleCart }) => {
   const handleAddToCart = () => {
     let cartCopy = [...cartData];
 
@@ -25,6 +25,7 @@ const ProductCard = ({ productData, cartData, setCartData }) => {
     }
 
     setCartData([...cartCopy]);
+    toggleCart();
   };
 
   return (
@@ -56,6 +57,7 @@ ProductCard.propTypes = {
   productData: PropTypes.object.isRequired,
   cartData: PropTypes.array.isRequired,
   setCartData: PropTypes.func.isRequired,
+  toggleCart: PropTypes.func.isRequired,
 };
 
 export default ProductCard;

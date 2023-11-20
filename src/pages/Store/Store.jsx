@@ -4,7 +4,7 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import styles from './Store.module.css';
 
 const Store = () => {
-  const [data, cartData, setCartData] = useOutletContext();
+  const [data, cartData, setCartData, toggleCart] = useOutletContext();
 
   // Trunc the data array to how many products to display
   const localData = data.slice(0, CONFIG.MAX_PRODUCTS_STORE);
@@ -20,6 +20,7 @@ const Store = () => {
             cartData={cartData}
             setCartData={setCartData}
             productData={dataSet}
+            toggleCart={toggleCart}
             key={dataSet.id}
           ></ProductCard>
         ))}

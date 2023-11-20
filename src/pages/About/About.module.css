@@ -1,0 +1,127 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.aboutImageContainer {
+  composes: glassBg from '/src/assets/colors.module.css';
+  padding: 0.5rem;
+  border-radius: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutImage {
+  border-radius: 0.75rem;
+  max-width: 100%;
+}
+
+.aboutDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.aboutHeading {
+  composes: secondaryColor from '/src/assets/colors.module.css';
+  composes: fnt32 from '/src/assets/font.module.css';
+  composes: semiBold from '/src/assets/font.module.css';
+}
+
+.aboutSubHeading {
+  composes: secondaryColor from '/src/assets/colors.module.css';
+  composes: fnt24 from '/src/assets/font.module.css';
+  composes: semiBold from '/src/assets/font.module.css';
+}
+
+.aboutDescription {
+  composes: greyColor from '/src/assets/colors.module.css';
+  composes: fnt18 from '/src/assets/font.module.css';
+  composes: regular from '/src/assets/font.module.css';
+}
+
+.underlined {
+  composes: underlined from '/src/assets/font.module.css';
+}
+
+.subscriptionSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscriptionContainer {
+  background: center / cover url('/src/assets/subscription.jpg');
+  width: 100%;
+  aspect-ratio: 3/1;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subscriptionHeading {
+  composes: whiteColor from '/src/assets/colors.module.css';
+  composes: fnt32 from '/src/assets/font.module.css';
+  composes: semiBold from '/src/assets/font.module.css';
+  text-align: center;
+}
+
+.subscriptionForm {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.subscriptionInput {
+  composes: fnt12 from '/src/assets/font.module.css';
+  composes: secondaryColor from '/src/assets/colors.module.css';
+  width: 100%;
+  border-radius: 1000px;
+  padding: 0.5rem 1.5rem;
+}
+
+.subscriptionInput:active,
+.subscriptionInput:focus {
+  outline: none;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.224);
+}
+
+@media (max-width: 1024px) {
+  .aboutContainer {
+    flex-direction: column;
+  }
+
+  .aboutImageContainer {
+    width: 100%;
+    align-self: center;
+  }
+
+  .aboutImage {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .aboutImageContainer {
+    display: none;
+  }
+}

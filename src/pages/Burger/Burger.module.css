@@ -1,4 +1,4 @@
-.cart {
+.burger {
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(3px);
@@ -10,7 +10,7 @@
   animation: 200ms blurBg;
 }
 
-.cartPopout {
+.burgerPopout {
   composes: secondaryColor from '/src/assets/colors.module.css';
   composes: whiteBg from '/src/assets/colors.module.css';
   min-width: 350px;
@@ -26,25 +26,25 @@
   display: none;
 }
 
-.cartHeader {
+.burgerHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.cartHeading {
+.burgerHeading {
   composes: fnt28 from '/src/assets/font.module.css';
   composes: semiBold from '/src/assets/font.module.css';
 }
 
-.cartItemList {
+.burgerMenuItems {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   overflow: auto;
 }
 
-.cartItemContainer {
+.burgerItemContainer {
   composes: accentLightBg from '/src/assets/colors.module.css';
   composes: fnt18 from '/src/assets/font.module.css';
   composes: semiBold from '/src/assets/font.module.css';
@@ -56,46 +56,12 @@
   gap: 0.75rem;
 }
 
-.itemOrderContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.cartItemIcons:hover {
+.burgerItemContainer:hover {
   cursor: pointer;
 }
 
-.quantityContainer {
-  composes: whiteBg from '/src/assets/colors.module.css';
-  border-radius: 1rem;
-  padding: 0.25rem 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.itemQuantity {
-  width: 2ch;
-  text-align: center;
-}
-
-.checkoutSection {
-  composes: accentBg from '/src/assets/colors.module.css';
-  composes: fnt18 from '/src/assets/font.module.css';
-  composes: bold from '/src/assets/font.module.css';
-  max-height: min-content;
-  padding: 0.75rem 1.5rem;
-  border-radius: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.checkoutContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.closeIcon:hover {
+  cursor: pointer;
 }
 
 button {
@@ -106,7 +72,7 @@ button {
 }
 
 @media (max-width: 430px) {
-  .cartPopout {
+  .burgerPopout {
     min-width: none;
     width: 100%;
   }

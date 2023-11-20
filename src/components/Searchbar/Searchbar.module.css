@@ -1,0 +1,26 @@
+.searchbarForm {
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  padding-left: 0.5rem;
+  filter: invert(11%) sepia(12%) saturate(4725%) hue-rotate(12deg)
+    brightness(96%) contrast(96%);
+}
+
+.searchbar {
+  composes: fnt12 from '/src/assets/font.module.css';
+  composes: secondaryColor from '/src/assets/colors.module.css';
+  width: 100%;
+  border-radius: 1000px;
+  padding: 0.5rem 2.5rem;
+}
+
+.searchbar:active,
+.searchbar:focus {
+  outline: none;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.224);
+}

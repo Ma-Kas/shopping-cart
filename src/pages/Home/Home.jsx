@@ -7,7 +7,7 @@ import Button from '../../components/Button/Button';
 import styles from './Home.module.css';
 
 const Home = () => {
-  const [data, cartData, setCartData] = useOutletContext();
+  const [data, cartData, setCartData, toggleCart] = useOutletContext();
 
   const navigate = useNavigate();
 
@@ -66,6 +66,7 @@ const Home = () => {
               productData={dataSet}
               cartData={cartData}
               setCartData={setCartData}
+              toggleCart={toggleCart}
               key={dataSet.id}
             ></ProductCard>
           ))}

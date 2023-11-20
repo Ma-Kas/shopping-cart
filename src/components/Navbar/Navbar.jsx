@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
-const Navbar = ({ cartData, onCartClick }) => {
+const Navbar = ({ cartData, onCartClick, onBurgerClick }) => {
   const currentLocation = useLocation().pathname;
 
   return (
@@ -63,7 +63,7 @@ const Navbar = ({ cartData, onCartClick }) => {
         <button
           type='button'
           className={styles.btnSearch}
-          onClick={() => console.log('search')}
+          onClick={(e) => e.preventDefault()}
         >
           <img src='./src/assets/search.svg' className={styles.iconCart} />
         </button>
@@ -71,7 +71,7 @@ const Navbar = ({ cartData, onCartClick }) => {
         <button
           type='button'
           className={styles.btnHamburger}
-          onClick={() => console.log('burger')}
+          onClick={onBurgerClick}
         >
           <img src='./src/assets/hamburger.svg' className={styles.iconCart} />
         </button>
@@ -90,6 +90,7 @@ const Navbar = ({ cartData, onCartClick }) => {
 Navbar.propTypes = {
   cartData: PropTypes.array.isRequired,
   onCartClick: PropTypes.func.isRequired,
+  onBurgerClick: PropTypes.func.isRequired,
 };
 
 export default Navbar;

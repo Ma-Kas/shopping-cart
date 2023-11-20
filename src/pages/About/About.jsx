@@ -1,5 +1,61 @@
+import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button';
+import styles from './About.module.css';
+
 const About = () => {
-  return;
+  const navigate = useNavigate();
+  return (
+    <div className={styles.page}>
+      <section className={styles.aboutContainer}>
+        <div className={styles.aboutImageContainer}>
+          <img
+            src='/src/assets/about_img.jpg'
+            alt='Coffee with latte art.'
+            className={styles.aboutImage}
+          />
+        </div>
+        <section className={styles.aboutDescriptionContainer}>
+          <h2 className={styles.aboutHeading}>
+            About <span className={styles.underlined}>Us</span>
+          </h2>
+          <h3 className={styles.aboutSubHeading}>
+            We provide quality coffee, and are ready to deliver.
+          </h3>
+          <p className={styles.aboutDescription}>
+            We are a company that makes and distributes delicious drinks. Our
+            main product is made with a secret recipe and available in stores
+            worldwide.
+          </p>
+          <Button
+            onClick={() => navigate('/store')}
+            buttonText='Get your coffee'
+          ></Button>
+        </section>
+      </section>
+      <section className={styles.subscriptionSection}>
+        <div className={styles.subscriptionContainer}>
+          <h3 className={styles.subscriptionHeading}>
+            Subscribe to get 50% off
+          </h3>
+          <form
+            className={styles.subscriptionForm}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <input
+              type='subscription'
+              className={styles.subscriptionInput}
+              name={styles.subscriptionInput}
+              id={styles.subscriptionInput}
+              placeholder='Email address'
+              autoComplete='off'
+            />
+          </form>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default About;
