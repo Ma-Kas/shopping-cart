@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../components/Button/Button';
 import createCartTotal from '../../utils/createCartTotal';
@@ -37,6 +38,11 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
     cartCopy.splice(index, 1);
     setCartData([...cartCopy]);
   };
+
+  // Implement Memoization to avoid unneccessary recalculation
+  const totalPrice = useMemo(() => {
+    return createCartTotal(cartData);
+  }, [cartData]);
 
   return (
     <div
@@ -89,9 +95,7 @@ const Cart = ({ cartData, setCartData, isCartOpen, toggleCart }) => {
         <section className={styles.checkoutSection}>
           <div className={styles.checkoutTitle}>Cart Total</div>
           <div className={styles.checkoutContainer}>
-            <div className={styles.totalPrice}>
-              {formatYen(createCartTotal(cartData))}
-            </div>
+            <div className={styles.totalPrice}>{formatYen(totalPrice)}</div>
             <Button buttonText='Checkout'></Button>
           </div>
         </section>

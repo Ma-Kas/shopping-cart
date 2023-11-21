@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import Navbar from '../../components/Navbar/Navbar';
@@ -12,16 +12,12 @@ function App() {
   const [cartData, setCartData] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  const bodyRef = useRef(document.body);
 
-  const toggleCart = () => {
-    isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true);
-  };
+  const toggleCart = () => setIsCartOpen(!isCartOpen);
+  const toggleBurger = () => setIsBurgerOpen(!isBurgerOpen);
 
-  const toggleBurger = () => {
-    isBurgerOpen ? setIsBurgerOpen(false) : setIsBurgerOpen(true);
-  };
-
-  document.body.style.overflow = isCartOpen ? 'hidden' : 'auto';
+  bodyRef.current.style.overflow = isCartOpen ? 'hidden' : 'auto';
 
   const { data, error, loading } = useFetch(
     `https://api.sampleapis.com/coffee/hot`

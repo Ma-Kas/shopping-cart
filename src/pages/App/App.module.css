@@ -1,5 +1,6 @@
 .page {
   min-width: fit-content;
+  max-width: 100dvw;
   position: relative;
   padding: 3rem 13dvw 6rem;
   display: flex;
@@ -22,14 +23,14 @@
 }
 
 .coffeeBgLeft {
-  width: 40vw;
+  width: 40dvw;
   top: 80vh;
   left: 0;
   transform: rotateZ(-180deg);
 }
 
 .coffeeBgRight {
-  width: 40vw;
+  width: 40dvw;
   top: 0;
   right: 0;
 }
@@ -42,21 +43,21 @@
 
 @media (max-width: 1024px) {
   .coffeeBgLeft {
-    width: 60vw;
+    width: 60dvw;
     top: 60vh;
   }
 
   .coffeeBgRight {
-    width: 60vw;
+    width: 60dvw;
   }
 }
 
 @media (max-width: 720px) {
   .coffeeBgLeft {
-    width: 70vw;
+    width: 70dvw;
   }
 
   .coffeeBgRight {
-    width: 80vw;
+    width: 80dvw;
   }
 }

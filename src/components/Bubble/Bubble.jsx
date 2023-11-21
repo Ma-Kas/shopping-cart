@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Bubble.module.css';
 import starIcon from '/src/assets/star.svg';
 
-const Bubble = ({ bubbleText, positionStyle, bubbleIcon }) => {
+const Bubble = memo(function Bubble({ bubbleText, positionStyle, bubbleIcon }) {
   return (
     <div className={styles.bubble} style={positionStyle}>
       <div className={styles.bubbleInner}>
@@ -12,7 +13,7 @@ const Bubble = ({ bubbleText, positionStyle, bubbleIcon }) => {
       </div>
     </div>
   );
-};
+});
 
 Bubble.propTypes = {
   bubbleText: PropTypes.string.isRequired,
