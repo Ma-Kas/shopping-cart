@@ -22,11 +22,11 @@ const About = () => {
             About <span className={styles.underlined}>Us</span>
           </h2>
           <h3 className={styles.aboutSubHeading}>
-            We provide quality coffee, and are ready to deliver.
+            We provide quality coffee, delivered straight to you
           </h3>
           <p className={styles.aboutDescription}>
             We are a company that makes and distributes delicious drinks. Our
-            main product is made with a secret recipe and available in stores
+            coffee is made with a special blend, and available in stores
             worldwide.
           </p>
           <Button

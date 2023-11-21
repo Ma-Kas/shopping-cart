@@ -108,3 +108,9 @@
     display: none;
   }
 }
+
+@media (max-width: 380px) {
+  .cardContainer {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}

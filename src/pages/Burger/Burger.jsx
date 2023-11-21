@@ -34,6 +34,9 @@ const Burger = ({ isBurgerOpen, toggleBurger }) => {
         </header>
         <section className={styles.burgerMenuItems}>
           <div className={styles.burgerItemContainer}>
+            <Searchbar></Searchbar>
+          </div>
+          <div className={styles.burgerItemContainer}>
             <div
               className={styles.itemName}
               onClick={() => handleNavigation(CONFIG.homePath)}
@@ -56,9 +59,6 @@ const Burger = ({ isBurgerOpen, toggleBurger }) => {
             >
               About Us
             </div>
-          </div>
-          <div className={styles.burgerItemContainer}>
-            <Searchbar></Searchbar>
           </div>
         </section>
       </div>

@@ -25,8 +25,8 @@ const Home = () => {
             before your activity
           </h1>
           <p className={styles.heroDescription}>
-            Boost your productivity and build your mood with a glass of coffee
-            in the morning
+            Boost your productivity, and calm your mind with a cup of coffee in
+            the morning
           </p>
           <Button
             onClick={() => navigate(CONFIG.storePath)}
